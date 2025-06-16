@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Land Registry Services</title>
+  <link rel="stylesheet" href="./landregservice.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="back-button" id="backButton"s>
+      <span>&lt;</span>
+    </div>
+    <h1>Land Registry Services</h1>
+    <div class="user-icon">
+      <a href="./profile.html">
+        <img src="./assets/user.png" alt="User Icon"></a>
+    </div>
+  </header>
+
+  <!-- Main Content Section -->
+  <div class="container">
+    <div class="card-container">
+      <div class="card" onclick="navigateTo('searchproperty.html')">
+        <img src="./assets/searchland.png" alt="Search Icon">
+        <h3>Search Property Records</h3>
+        <p>Allow users to view the details of registered properties.</p>
+      </div>
+      <div class="card" onclick="navigateTo('registernewprop.html')">
+        <img src="./assets/register.png" alt="Register Icon">
+        <h3>Register New Property</h3>
+        <p>Registration of new property, including uploading documents.</p>
+      </div>
+      <div class="card" onclick="navigateTo('ownertransfer.html')">
+        <img src="./assets/ownertrans.png" alt="Ownership Icon">
+        <h3>Ownership Transfer</h3>
+        <p>Transferring property ownership with verification.</p>
+      </div>
+      <div class="card" onclick="navigateTo('blockchain.html')">
+        <img src="./assets/owner.png" alt="Verify Icon">
+        <h3>Verify Ownership Status</h3>
+        <p>Check the blockchain verification status of ownership.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+
+    // Back button functionality
+    const backButton = document.getElementById('backButton');
+    backButton.addEventListener('click', () => {
+      window.history.back();
+    });
+  </script>
+</body>
+</html>

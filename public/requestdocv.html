@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Request Document Verification</title>
+    <link rel="stylesheet" href="./requestdocv.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./commonAuth.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="back-button" id="backButton">
+          <span>&lt;</span>
+        </div>
+        <h1>Request Document Verification</h1>
+        <div class="user-icon">
+          <a href="./profile.html">
+            <img src="./assets/user.png" alt="User Icon"
+          /></a>
+        </div>
+      </header>
+
+      <main class="form-container">
+        <div class="personal-info">
+          <h2>Personal Information</h2>
+          <form id="personal-info-form">
+            <input type="text" placeholder="First Name" id="first-name" />
+            <input type="text" placeholder="Last Name" id="last-name" />
+            <input type="email" placeholder="Email Address" id="email" />
+            <input type="tel" placeholder="Phone Number" id="phone-number" />
+            <input
+              type="text"
+              placeholder="Aadhaar / PAN Number"
+              id="aadhaar-pan"
+            />
+            <textarea
+              placeholder="Permanent Address"
+              id="permanent-address"
+            ></textarea>
+            <textarea
+              placeholder="Current Address"
+              id="current-address"
+            ></textarea>
+            <div class="checkbox">
+              <input type="checkbox" id="same-address" />
+              <label for="same-address"
+                >Current Address same as permanent address?</label
+              >
+            </div>
+          </form>
+        </div>
+
+        <div class="document-info">
+          <h2>Document Information</h2>
+          <form id="document-info-form">
+            <select id="document-type">
+              <option value="" disabled selected>Document Type</option>
+              <option value="passport">Passport</option>
+              <option value="id-card">ID Card</option>
+              <option value="driving-license">Driving License</option>
+              <option value="utility-bill">Utility Bill</option>
+              <option value="aadhaar">Aadhaar</option>
+              <option value="pan-card">PAN Card</option>
+              <option value="voter-id">Voter ID</option>
+              <option value="marriage-cert">Marriage Certificate</option>
+              <option value="birth-cert">Birth Certificate</option>
+              <option value="sale-deed">Sale Deed</option>
+              <option value="purchase-paper">Purchase Paper</option>
+              <option value="fixed-deposit">Fixed Deposit</option>
+              <option value="will">Will</option>
+              <option value="trust-deed">Trust Deed</option>
+              <option value="power-of-attorney">Power of Attorney</option>
+              <option value="lease-agreement">Lease Agreement</option>
+              <option value="rent-agreement">Rent Agreement</option>
+              <option value="partnership-deed">Partnership Deed</option>
+              <option value="company-registration">Company Registration</option>
+              <option value="gst-certificate">GST Certificate</option>
+              <option value="shop-act">Shop Act</option>
+              <option value="trade-license">Trade License</option>
+              <option value="food-license">Food License</option>
+              <option value="fire-license">Firearms License</option>
+              <option value="health-license">Health License</option>
+              <option value="labour-license">Labour License</option>
+              <option value="contract-labour-license">
+                Contract Labour License
+              </option>
+              <option value="factory-license">Factory License</option>
+              <option value="pollution-license">Pollution License</option>
+              <option value="excise-license">Excise License</option>
+              <option value="customs-license">Customs License</option>
+              <option value="death-cert">Death Certificate</option>
+              <option value="divorce-cert">Divorce Certificate</option>
+              <option value="court-order">Court Order</option>
+              <option value="legal-notice">Legal Notice</option>
+              <option value="agreement">Job Letter</option>
+            </select>
+
+            <input type="text" placeholder="Document ID" id="document-number" />
+
+            <div class="upload-section">
+              <!-- First File Upload -->
+              <div class="file-upload-container">
+                <label
+                  for="upload-document"
+                  class="upload-btn"
+                  id="upload-label-1"
+                >
+                  <span>&#128206; Upload Front Side</span>
+                </label>
+                <input
+                  type="file"
+                  id="upload-document"
+                  hidden
+                  accept=".pdf,.png,.jpg,.jpeg"
+                />
+                <div id="file-preview-1" class="file-preview hidden"></div>
+                <div id="file-info-1" class="file-info hidden">
+                  <span class="filename"></span>
+                  <span class="filesize"></span>
+                </div>
+              </div>
+
+              <!-- Second File Upload -->
+              <div class="file-upload-container">
+                <label
+                  for="upload-document-2"
+                  class="upload-btn"
+                  id="upload-label-2"
+                >
+                  <span>&#128206; Upload Back Side</span>
+                </label>
+                <input
+                  type="file"
+                  id="upload-document-2"
+                  hidden
+                  accept=".pdf,.png,.jpg,.jpeg"
+                />
+                <div id="file-preview-2" class="file-preview hidden"></div>
+                <div id="file-info-2" class="file-info hidden">
+                  <span class="filename"></span>
+                  <span class="filesize"></span>
+                </div>
+              </div>
+            </div>
+
+            <div id="upload-error" class="error-message hidden"></div>
+            <div class="upload-hint">
+              Accepted formats: PDF, PNG, JPG (Max size: 10MB)
+            </div>
+          </form>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <a href="./docregister.html">
+          <button id="continue-button">Continue</button>
+        </a>
+      </footer>
+    </div>
+    <div id="loading-overlay" class="hidden">
+      <div class="loading-spinner"></div>
+    </div>
+
+    <script type="module" src="./requestdocv.js"></script>
+  </body>
+</html>

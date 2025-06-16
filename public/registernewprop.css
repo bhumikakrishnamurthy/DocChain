@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Questrial", sans-serif;
+}
+
+body {
+  background-color: black;
+  color: white;
+  padding-bottom: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: white;
+  position: sticky;
+  top: 0;
+  background-color: #000;
+  z-index: 100;
+}
+
+.header h1 {
+  font-size: 40px;
+  margin: 0;
+}
+
+.back-button {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.user-icon img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  margin-top: 5px;
+}
+
+.supporting-documents {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.document-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.document-item label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.attachment-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #007bff;
+}
+
+.document-item input[type="file"] {
+  display: none;
+}
+
+.file-info {
+  font-size: 12px;
+  color: #888;
+  margin-left: auto;
+}
+
+.file-name {
+  font-size: 12px;
+  color: #007bff;
+  margin-left: 30px;
+  display: none;
+}
+
+.document-item.has-file .file-name {
+  display: block;
+}
+
+.ownership-history {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.appointement-details {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.double-input {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+input[placeholder="State"],
+input[placeholder="City"] {
+  transition: background-color 0.3s ease;
+}
+
+input[placeholder="Pincode"] {
+  transition: background-image 0.3s ease;
+}
+
+input[readonly] {
+  opacity: 0.8;
+  cursor: not-allowed;
+  background-color: #333 !important;
+}
+
+input[readonly]:hover {
+  background-color: #333 !important;
+}
+
+/* Dropdown CSS for Locality */
+.locality-dropdown-container {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #222;
+  border-radius: 5px;
+}
+
+.locality-dropdown {
+  width: 100%;
+  padding: 12px;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.locality-dropdown option {
+  background-color: #333;
+  color: white;
+  padding: 8px;
+}
+
+.locality-info {
+  display: block;
+  color: #888;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Optional: Style for autofilled background */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #e8f0fe inset;
+}
+
+.continue-btn {
+  background-color: #171717;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.continue-btn:hover {
+  background-color: black;
+  border: #fff solid 2px;
+}

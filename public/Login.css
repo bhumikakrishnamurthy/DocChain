@@ -1,0 +1,175 @@
+* {
+  font-family: "Questrial", sans-serif;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: rgba(23, 23, 23, 0.7);
+  border-radius: 30px;
+  width: 450px;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo img {
+  height: 96px;
+  width: 350px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #323232;
+  border-radius: 30px;
+  padding: 5px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 20px auto;
+}
+
+.tab {
+  flex: 1;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab.active {
+  background-color: #1e1e1e;
+  color: #fff;
+  font-weight: bold;
+}
+
+.form {
+  display: none;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.form.active {
+  display: block;
+}
+
+input {
+  display: block;
+  width: 80%;
+  height: 30px;
+  padding: 10px;
+  margin: 10px auto;
+  border: none;
+  border-radius: 30px;
+  background-color: #171717;
+  color: #fff;
+}
+
+input:focus {
+  outline: none;
+  background-color: #333;
+  font-weight: bold;
+}
+
+.btn {
+  background-color: #171717;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 100px;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: black;
+}
+
+.forgot-password {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #aaa;
+  cursor: pointer;
+  font-style: italic;
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.error-box {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px 15px;
+  margin: 10px auto;
+  border-radius: 10px;
+  font-size: 14px;
+  width: 80%;
+  display: none;
+  text-align: center;
+  animation: fadeInOut 5s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.spinner {
+  display: none;
+  width: 40px;
+  height: 40px;
+  margin: 10px auto;
+  border: 4px solid #171717;
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

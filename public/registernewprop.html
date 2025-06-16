@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register New Property</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./registernewprop.css" />
+    <script src="./commonAuth.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="back-button" id="backButton">
+        <span>&lt;</span>
+      </div>
+      <h1>Register New Property</h1>
+      <div class="user-icon">
+        <a href="./profile.html">
+          <img src="./assets/user.png" alt="User Icon"
+        /></a>
+      </div>
+    </header>
+
+    <form id="propertyForm">
+      <div class="container">
+        <div class="left-section">
+          <section>
+            <h2>Owner's Information</h2>
+            <div class="form-group double-input">
+              <input type="text" placeholder="First Name" required />
+              <input type="text" placeholder="Last Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email Address" required />
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Phone Number" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Aadhar / PAN Number" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Permanent Address" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Current Address" required />
+              <em style="font-size: 10px"
+                >Current Address is same as permanent address?</em
+              >
+            </div>
+          </section>
+
+          <section class="supporting-documents">
+            <h2>Supporting Documents</h2>
+            <div class="document-item">
+              <label for="saleDeed">
+                <span class="attachment-icon">📎</span>
+                Sale Deed
+                <span class="file-info">Max 10MB (PDF, JPG, PNG)</span>
+              </label>
+              <input
+                type="file"
+                id="saleDeed"
+                accept=".pdf,.jpg,.jpeg,.png"
+                data-max-size="10"
+              />
+              <div class="file-name"></div>
+            </div>
+            <div class="document-item">
+              <label for="taxReceipts">
+                <span class="attachment-icon">📎</span>
+                Tax Receipts
+                <span class="file-info">Max 10MB (PDF, JPG, PNG)</span>
+              </label>
+              <input
+                type="file"
+                id="taxReceipts"
+                accept=".pdf,.jpg,.jpeg,.png"
+                data-max-size="10"
+              />
+              <div class="file-name"></div>
+            </div>
+            <div class="document-item">
+              <label for="encumbrance">
+                <span class="attachment-icon">📎</span>
+                Encumbrance Certificate
+                <span class="file-info">Max 10MB (PDF, JPG, PNG)</span>
+              </label>
+              <input
+                type="file"
+                id="encumbrance"
+                accept=".pdf,.jpg,.jpeg,.png"
+                data-max-size="10"
+              />
+              <div class="file-name"></div>
+            </div>
+            <div class="document-item">
+              <label for="occupancy">
+                <span class="attachment-icon">📎</span>
+                Occupancy Certificate
+                <span class="file-info">Max 10MB (PDF, JPG, PNG)</span>
+              </label>
+              <input
+                type="file"
+                id="occupancy"
+                accept=".pdf,.jpg,.jpeg,.png"
+                data-max-size="10"
+              />
+              <div class="file-name"></div>
+            </div>
+            <div class="document-item">
+              <label for="buildingPlan">
+                <span class="attachment-icon">📎</span>
+                Building Plan Approval
+                <span class="file-info">Max 10MB (PDF, JPG, PNG)</span>
+              </label>
+              <input
+                type="file"
+                id="buildingPlan"
+                accept=".pdf,.jpg,.jpeg,.png"
+                data-max-size="10"
+              />
+              <div class="file-name"></div>
+            </div>
+            <div class="document-item">
+              <label for="powerAttorney">
+                <span class="attachment-icon">📎</span>
+                Power of Attorney
+                <span class="file-info">Max 10MB (PDF, JPG, PNG)</span>
+              </label>
+              <input
+                type="file"
+                id="powerAttorney"
+                accept=".pdf,.jpg,.jpeg,.png"
+                data-max-size="10"
+              />
+              <div class="file-name"></div>
+            </div>
+            <div class="document-item">
+              <label for="photoCertificate">
+                <span class="attachment-icon">📎</span>
+                Photo Certificate / Extract
+                <span class="file-info">Max 10MB (PDF, JPG, PNG)</span>
+              </label>
+              <input
+                type="file"
+                id="photoCertificate"
+                accept=".pdf,.jpg,.jpeg,.png"
+                data-max-size="10"
+              />
+              <div class="file-name"></div>
+            </div>
+          </section>
+
+          <!-- <section class="ownership-history">
+            <h2>Ownership History</h2>
+            <em style="font-size: 10px">Only most recent owner is shown.</em>
+            <p>No Disputed Share Details<br />Inherited property - 2011-2023</p>
+          </section> -->
+
+          <section class="appointment-details">
+            <h2>Appointment Details</h2>
+
+            <div class="form-group">
+              <label for="appointmentDate">Select Date</label>
+              <input type="date" id="appointmentDate" required />
+            </div>
+
+            <div class="form-group">
+              <label for="Choose">Select Sub-Registrar Office</label>
+              <select id="Choose" required disabled>
+                <option value="register" disabled selected>
+                  Choose Sub-Registrar Office
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="timeSlot">Select Time Slot</label>
+              <select id="timeSlot" required disabled>
+                <option value="" disabled selected>Choose Time Slot</option>
+              </select>
+            </div>
+          </section>
+        </div>
+
+        <div class="right-section">
+          <section>
+            <h2>Property Information</h2>
+            <div class="form-group">
+              <input type="text" placeholder="Property ID" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Plot / Flat Number" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Street" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Locality" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="City" required />
+            </div>
+            <div class="form-group double-input">
+              <input type="text" placeholder="State" required />
+              <input type="text" placeholder="Pincode" required />
+            </div>
+            <div class="form-group">
+              <select id="propertyType" required>
+                <option value="">Type of Property</option>
+                <option value="residential">Residential</option>
+                <option value="commercial">Commercial</option>
+                <option value="industrial">Industrial</option>
+                <option value="agricultural">Agricultural</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Land Area" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Built-up Area" required />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="Property Classification"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <select id="transactionType" required>
+                <option value="">Transaction Type</option>
+                <option value="sale">Sale</option>
+                <option value="inheritance">Inheritance</option>
+                <option value="gift">Gift</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="date" placeholder="Transaction Date" required />
+            </div>
+            <div class="form-group">
+              <input type="number" placeholder="Purchase Value" required />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                placeholder="Stamp Duty & Registration Fees"
+                required
+              />
+            </div>
+          </section>
+
+          <section>
+            <h2>Witness & Verification</h2>
+            <div class="form-group double-input">
+              <input type="text" placeholder="First Name" required />
+              <input type="text" placeholder="Last Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email Address" required />
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Phone Number" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Aadhar / PAN Number" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Permanent Address" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Current Address" required />
+              <em style="font-size: 10px"
+                >Current Address is same as permanent address?</em
+              >
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div style="text-align: center">
+        <button type="submit" class="continue-btn">Continue</button>
+      </div>
+    </form>
+
+    <!-- Load Web3 first -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.9.0/web3.min.js"></script>
+
+    <!-- Setup debug function before loading modules -->
+    <script>
+      window.debugWeb3Setup = async function () {
+        try {
+          const { initWeb3 } = await import("./web3-config.js");
+          console.log("Starting Web3 debug setup...");
+
+          const { web3, propertyContract, account } = await initWeb3();
+          console.log("Web3 initialized successfully");
+          console.log("Connected account:", account);
+
+          // Get network details
+          const networkId = await web3.eth.net.getId();
+          console.log("Network ID:", networkId);
+
+          // Check contract
+          const contractAddress = propertyContract.options.address;
+          console.log("Contract address:", contractAddress);
+
+          return "Debug complete - all systems operational";
+        } catch (error) {
+          console.error("Debug setup failed:", error);
+          return `Debug failed: ${error.message}`;
+        }
+      };
+    </script>
+
+    <!-- Load your module scripts -->
+    <script type="module" src="web3-config.js"></script>
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="registernewprop.js"></script>
+
+    <!-- Run debug setup -->
+    <!-- <script>
+      debugWeb3Setup().then(console.log).catch(console.error);
+    </script> -->
+  </body>
+</html>

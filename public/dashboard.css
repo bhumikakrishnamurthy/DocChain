@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Questrial", sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: white;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+    position: relative;
+    padding-right: 2rem; /* Optional for better spacing */
+}
+
+.profile-icon {
+    position: fixed; /* Change position to fixed */
+    top: 0.6rem;       /* Adjust as needed */
+    right: 1.2rem;     /* Push it to the right side of the screen */
+    width: 50px;     /* Adjust dimensions for better visibility */
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222; /* Optional for a circular background effect */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Optional for some depth */
+}
+
+.profile-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover; /* Ensures the image fits well inside the circle */
+}
+
+
+.head{
+    top: 10%;
+}
+
+h1 {
+    font-size: 80px;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+h2 {
+    font-size: 40px;
+    color: #888;
+    font-weight: normal;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.card {
+    background-color: rgba(23, 23, 23, 0.70);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 6px rgba(4, 231, 243, 0.83)
+}
+
+.card-icon {
+    width: 204px;
+    height: 204px;
+    margin: 0 auto 1.5rem;
+}
+
+.card h3 {
+    font-size: 30px;
+    margin-bottom: 0.5rem;
+}
+
+.land-registry-icon {
+    border-radius: 50%;
+}
+img{
+    height: 204px;
+    width: 204px;
+}
+.document-verify-icon {
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        margin-bottom: 2rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+

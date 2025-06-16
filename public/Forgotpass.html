@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgot Password - DocChain</title>
+    <link rel="stylesheet" href="./ForgotPassword.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img src="./assets/logo.png" alt="TrustVault Logo" />
+      </div>
+      <h2 class="title">Forgot Password</h2>
+      <form class="forgot-password-form" action="./Login.html">
+        <input type="email" placeholder="Email" required />
+        <div class="otp-container">
+          <input
+            type="text"
+            placeholder="Check your email for reset link"
+            required
+          />
+          <button type="button" id="sendOtpBtn" class="otp-btn">
+            Send Reset Link
+          </button>
+        </div>
+        <button type="submit" class="btn">Continue</button>
+      </form>
+    </div>
+    <!-- Firebase scripts -->
+    <script type="module" src="../firebase.js"></script>
+    <script type="module" src="./ForgotPassword.js"></script>
+  </body>
+</html>

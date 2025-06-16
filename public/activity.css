@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  font-family: "Questrial", sans-serif;
+}
+
+body {
+  background: black;
+  color: #e1e5ee;
+  min-height: 100vh;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.activity-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #171717;
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.back-button {
+  background: transparent;
+  border: 1px solid rgba(60, 130, 246, 0.3);
+  padding: 8px 16px;
+  border-radius: 12px;
+  color: #3c82f6;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-button:hover {
+  background: rgba(60, 130, 246, 0.1);
+  transform: translateX(-2px);
+}
+
+.activity-header {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.activity-header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #3c82f6 0%, #2563eb 100%);
+  -webkit-background-clip: text;
+  background-clip: inherit;
+  padding-left: 15px;
+  color: #fff;
+}
+
+.filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  background: rgba(24, 28, 36, 0.6);
+  border: 1px solid rgba(60, 130, 246, 0.3);
+  padding: 8px 16px;
+  border-radius: 12px;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.filter-button.active {
+  background: rgba(60, 130, 246, 0.1);
+  color: #3c82f6;
+  border-color: #3c82f6;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(60, 130, 246, 0.3);
+}
+
+.activity-item {
+  position: relative;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(24, 28, 36, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.activity-item::before {
+  content: "";
+  position: absolute;
+  left: -34px;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #3c82f6;
+  border: 3px solid rgba(28, 32, 40, 0.95);
+}
+
+.activity-type {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  margin-bottom: 10px;
+}
+
+.type-verification {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.type-transaction {
+  background: rgba(60, 130, 246, 0.1);
+  color: #3c82f6;
+}
+
+.type-document {
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+}
+
+.type-property {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.activity-title {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  color: #e1e5ee;
+}
+
+.activity-details {
+  color: #94a3b8;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.blockchain-info {
+  background: rgba(24, 28, 36, 0.8);
+  padding: 12px;
+  border-radius: 8px;
+  font-family: "Monaco", monospace;
+  font-size: 0.85em;
+  color: #3c82f6;
+  word-break: break-all;
+  margin-top: 10px;
+  border: 1px solid rgba(60, 130, 246, 0.2);
+  cursor: pointer;
+}
+
+.activity-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.activity-time {
+  color: #94a3b8;
+  font-size: 0.9em;
+}
+
+.activity-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-button {
+  background: transparent;
+  border: 1px solid rgba(60, 130, 246, 0.3);
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #3c82f6;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.action-button:hover {
+  background: rgba(60, 130, 246, 0.1);
+}
+
+.load-more {
+  background: rgba(24, 28, 36, 0.6);
+  border: 1px solid rgba(60, 130, 246, 0.3);
+  padding: 12px 24px;
+  border-radius: 12px;
+  color: #3c82f6;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.load-more:hover {
+  background: rgba(60, 130, 246, 0.1);
+}
+
+@media (max-width: 768px) {
+  .activity-container {
+    padding: 20px;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .filter-button {
+    width: 100%;
+    text-align: center;
+  }
+}

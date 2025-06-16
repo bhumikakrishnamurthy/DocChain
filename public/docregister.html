@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>land registered</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./registered.css">
+</head>
+<body>
+    <header class="header">
+        <div class="back-button" id="backButton">
+            <span>&lt;</span>
+        </div>
+       
+        <div class="user-icon">
+          <a href="./profile.html">
+            <img src="./assets/user.png" alt="User Icon"></a>
+        </div>
+    </header>
+    <div class="info">
+        <p id="para1">Your application is sent to the relevant government authority for further processing. 
+            You will be notified once your request has been processed and approved.</p>
+        <p id="para2">Thank you for your patronage!</p>
+        <em>Redirecting to dashboard in <span class="countdown" id="countdown">5</span> seconds.</em>
+    </div>
+    <img src="./assets/trust.png" alt="trust_the_process" id="process">
+    <script>
+        document.getElementById("backButton").addEventListener("click", () => {
+            history.back(); // Navigates to the previous page
+        });
+
+        let countdown = 5; // Start countdown at 5
+        const countdownElement = document.getElementById("countdown");
+
+        const countdownInterval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown; // Update the countdown text
+            if (countdown === 0) {
+                clearInterval(countdownInterval); // Stop the countdown
+                window.location.href = "./dashboard.html"; // Redirect to dashboard
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

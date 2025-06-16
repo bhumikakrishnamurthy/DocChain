@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DocChain - Activity Log</title>
+    <link rel="stylesheet" href="./activity.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="activity-container">
+      <div class="navigation">
+        <button class="back-button" onclick="goBack()">
+          ← Back to Profile
+        </button>
+      </div>
+
+      <div class="activity-header">
+        <h1>Activity Log</h1>
+        <p>Track all your property and document-related activities</p>
+      </div>
+
+      <div class="filters">
+        <button class="filter-button active">All Activities</button>
+        <button class="filter-button">Verifications</button>
+        <button class="filter-button">Transactions</button>
+        <button class="filter-button">Documents</button>
+        <button class="filter-button">Property Updates</button>
+      </div>
+
+      <div class="timeline">
+        <!-- Today -->
+        <div class="activity-item">
+          <span class="activity-type type-verification">Verification</span>
+          <h3 class="activity-title">Property Title Verification Completed</h3>
+          <p class="activity-details">Luxury Villa - Koramangala</p>
+          <div class="blockchain-info">
+            Transaction Hash: 0xf7eB7637825712123798172340789134789124789
+          </div>
+          <div class="activity-meta">
+            <span class="activity-time">Today, 2:30 PM</span>
+            <div class="activity-actions">
+              <button class="action-button">View Details</button>
+              <button class="action-button">Download Certificate</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="activity-item">
+          <span class="activity-type type-document">Document</span>
+          <h3 class="activity-title">Sale Deed Uploaded</h3>
+          <p class="activity-details">Commercial Space - HSR Layout</p>
+          <div class="blockchain-info">
+            IPFS Hash: QmW2WQi7j6c7UgJTarActp7tDNikE4B2qXtFCfLPdsgaTQ
+          </div>
+          <div class="activity-meta">
+            <span class="activity-time">Today, 11:45 AM</span>
+            <div class="activity-actions">
+              <button class="action-button">View Document</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Yesterday -->
+        <div class="activity-item">
+          <span class="activity-type type-transaction">Transaction</span>
+          <h3 class="activity-title">Property Transfer Initiated</h3>
+          <p class="activity-details">Commercial Space - HSR Layout</p>
+          <div class="blockchain-info">
+            Smart Contract: 0x891d35Cc7734C0532925a3b844Bc454e4438f55f
+          </div>
+          <div class="activity-meta">
+            <span class="activity-time">Yesterday, 4:15 PM</span>
+            <div class="activity-actions">
+              <button class="action-button">View Transaction</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="activity-item">
+          <span class="activity-type type-property">Property</span>
+          <h3 class="activity-title">New Property Added</h3>
+          <p class="activity-details">Luxury Villa - Koramangala</p>
+          <div class="activity-meta">
+            <span class="activity-time">Yesterday, 10:30 AM</span>
+            <div class="activity-actions">
+              <button class="action-button">View Property</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Previous -->
+        <div class="activity-item">
+          <span class="activity-type type-verification">Verification</span>
+          <h3 class="activity-title">KYC Verification Completed</h3>
+          <p class="activity-details">
+            Identity verification for property registration
+          </p>
+          <div class="blockchain-info">Verification ID: KYC-2025-03-15-001</div>
+          <div class="activity-meta">
+            <span class="activity-time">2025</span>
+            <div class="activity-actions">
+              <button class="action-button">View Certificate</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="load-more">Load More Activities</button>
+    </div>
+
+    <script src="./activity.js"></script>
+  </body>
+</html>

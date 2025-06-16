@@ -1,0 +1,38 @@
+# .gitignore
+
+# Firebase config
+config.js
+firebase.js
+
+# Dependencies
+node_modules/
+uploads/
+signatures/
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

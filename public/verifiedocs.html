@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DocChain - Document Center</title>
+    <link rel="stylesheet" href="./viewdoc.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./commonAuth.js"></script>
+    <style>
+      .document-preview {
+        width: 100%;
+        height: 200px; /* Adjust height as needed */
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #1a1a1a; /* Dark background for the preview area */
+        border-radius: 8px 8px 0 0; /* Rounded corners at top */
+      }
+
+      .document-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* This will maintain aspect ratio */
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .document-preview-img {
+        border-radius: 4px;
+      }
+
+      .preview-spinner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #1a1a1a;
+      }
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid #1a1a1a;
+        border-top: 3px solid #3498db;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .document-preview {
+        position: relative; /* Add this */
+      }
+
+      .preview-loaded .preview-spinner {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="document-container">
+      <div class="navigation">
+        <button class="back-button" onclick="goBack()">
+          ← Back to Profile
+        </button>
+        <button class="upload-button">+ Upload New Document</button>
+      </div>
+
+      <div class="header">
+        <h1>Document Center</h1>
+        <p>Manage and verify your property documents</p>
+      </div>
+
+      <div class="search-bar">
+        <input
+          type="text"
+          id="search-input"
+          class="search-input"
+          placeholder="Search documents..."
+        />
+      </div>
+
+      <div class="filters">
+        <button class="filter-button active" data-filter="all">
+          All Documents
+        </button>
+        <button class="filter-button" data-filter="Aadhar">Aadhar</button>
+        <button class="filter-button" data-filter="PAN">PAN Card</button>
+        <button class="filter-button" data-filter="Passport">Passport</button>
+        <button class="filter-button" data-filter="Voter">Voter ID</button>
+      </div>
+
+      <div class="document-grid" id="document-grid">
+        <!-- Documents will be dynamically loaded here -->
+        <div id="loading-spinner" class="text-center p-4">
+          Loading documents...
+        </div>
+      </div>
+    </div>
+
+    <template id="document-card-template">
+      <div class="document-card">
+        <div class="document-status"></div>
+        <div class="document-preview">
+          <div class="preview-spinner">
+            <div class="spinner"></div>
+          </div>
+          <img src="" alt="Document Preview" />
+        </div>
+        <div class="document-info">
+          <span class="document-type"></span>
+          <h3 class="document-title"></h3>
+          <p class="document-meta"></p>
+          <div class="blockchain-info"></div>
+          <div class="document-actions">
+            <button class="action-button preview-btn">Preview</button>
+            <button class="action-button primary download-btn">Download</button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <script type="module" src="./verifiedocs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script>
+      // Global configuration for PDF.js
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Property Verification</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./blockchain.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="back-button" id="backButton">
+        <span>&lt;</span>
+      </div>
+      <h1>Verify Property Registration</h1>
+      <div class="user-icon">
+        <a href="./profile.html">
+          <img src="./assets/user.png" alt="User Icon" />
+        </a>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-box"
+          placeholder="Enter Transaction Hash or Blockchain ID"
+          id="searchInput"
+        />
+        <button class="verify-button" id="verifyButton" disabled>
+          Verify Property
+        </button>
+      </div>
+
+      <div class="search-info">
+        You can verify a property by entering either:
+        <ul>
+          <li>Transaction Hash (starts with 0x)</li>
+          <li>Blockchain ID</li>
+        </ul>
+      </div>
+
+      <div class="error-message" id="errorMessage"></div>
+      <div id="resultContainer"></div>
+
+      <!-- Blockchain Data Section -->
+      <div id="blockchainDataContainer" class="blockchain-data-container">
+        <div class="data-tabs">
+          <button class="tab-button active" onclick="switchTab('propertyTab')">
+            Property Data
+          </button>
+          <button class="tab-button" onclick="switchTab('transactionTab')">
+            Transaction Data
+          </button>
+          <button class="tab-button" onclick="switchTab('eventsTab')">
+            Events
+          </button>
+        </div>
+        <div class="tab-content" id="propertyTab">
+          <!-- Property data will be inserted here -->
+        </div>
+        <div class="tab-content hidden" id="transactionTab">
+          <!-- Transaction data will be inserted here -->
+        </div>
+        <div class="tab-content hidden" id="eventsTab">
+          <!-- Events data will be inserted here -->
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.2.2/web3.min.js"></script>
+    <script type="module" src="web3-config.js"></script>
+    <script type="module" src="blockchain.js"></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DocChain - Modern Property Registry</title>
+    <link rel="stylesheet" href="./profile.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.5.0/web3.min.js"></script>
+    <script src="./commonAuth.js"></script>
+  </head>
+  <body>
+    <div class="back-button" id="backButton"s>
+      <span>&lt;</span>
+    </div>
+    <div class="profile-container">
+      <!-- Header Section -->
+      <div class="profile-header">
+        <div class="profile-picture-container">
+          <!-- Initial will be inserted here -->
+        </div>
+        <h1 id="user-name">Loading...</h1>
+        <p class="user-role">
+          Property Owner <span class="verified-badge">Loading...</span>
+        </p>
+      </div>
+
+      <!-- Property Portfolio Section -->
+      <div class="section property-portfolio">
+        <h2>Property Portfolio</h2>
+        <div class="loading-indicator">Loading properties...</div>
+      </div>
+
+      <!-- Document Center -->
+      <div class="section document-center">
+        <h2>Document Center</h2>
+        <div class="loading-indicator">Loading documents...</div>
+      </div>
+
+      <!-- Security Center -->
+      <div class="section security-center">
+        <h2>Security Center</h2>
+        <div class="loading-indicator">Loading wallet status...</div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="spinner" id="loginSpinner"></div>
+        <button id="logout">Logout</button>
+        <p>© 2025 DocChain. All rights reserved.</p>
+      </div>
+    </div>
+
+    <script type="module" src="./profile.js"></script>
+     <script>
+   
+
+    // Back button functionality
+    const backButton = document.getElementById('backButton');
+    backButton.addEventListener('click', () => {
+      window.history.back();
+    });
+  </script>
+  </body>
+ 
+</html>

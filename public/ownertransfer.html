@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transfer Property</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./registernewprop.css" />
+    <script src="./commonAuth.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="back-button" id="backButton">
+        <span>&lt;</span>
+      </div>
+      <h1>Property Ownership Transfer</h1>
+      <div class="user-icon">
+        <a href="./profile.html">
+          <img src="./assets/user.png" alt="User Icon"
+        /></a>
+      </div>
+    </header>
+
+    <form id="propertyForm">
+      <div class="container">
+        <div class="left-section">
+          <section>
+            <h2>Owner's Information</h2>
+            <div class="form-group double-input">
+              <input type="text" placeholder="First Name" required />
+              <input type="text" placeholder="Last Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email Address" required />
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Phone Number" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Aadhar / PAN Number" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Permanent Address" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Current Address" required />
+              <em style="font-size: 10px"
+                >Current Address is same as permanent address?</em
+              >
+            </div>
+          </section>
+
+          <section>
+            <h2>New Owner's Information</h2>
+            <div class="form-group double-input">
+              <input
+                type="text"
+                placeholder="First Name"
+                required
+                name="newOwner_firstName"
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                required
+                name="newOwner_lastName"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                placeholder="Email Address"
+                required
+                name="newOwner_email"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                required
+                name="newOwner_phone"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="Aadhar / PAN Number"
+                required
+                name="newOwner_idNumber"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="Permanent Address"
+                required
+                name="newOwner_permanentAddress"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="Current Address"
+                required
+                name="newOwner_currentAddress"
+              />
+              <em style="font-size: 10px"
+                >Current Address is same as permanent address?</em
+              >
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="Ethereum Address"
+                required
+                name="newOwner_ethAddress"
+              />
+            </div>
+          </section>
+
+          <section class="supporting-documents">
+            <h2>Supporting Documents</h2>
+            <div class="document-item">
+              <label for="saleDeed">
+                <span class="attachment-icon">📎</span>
+                Sale Deed
+                <span class="file-info">Max 10MB (PDF, JPG, PNG)</span>
+              </label>
+              <input
+                type="file"
+                id="saleDeed"
+                accept=".pdf,.jpg,.jpeg,.png"
+                data-max-size="10"
+              />
+              <div class="file-name"></div>
+            </div>
+            <div class="document-item">
+              <label for="taxReceipts">
+                <span class="attachment-icon">📎</span>
+                Tax Receipts
+                <span class="file-info">Max 10MB (PDF, JPG, PNG)</span>
+              </label>
+              <input
+                type="file"
+                id="taxReceipts"
+                accept=".pdf,.jpg,.jpeg,.png"
+                data-max-size="10"
+              />
+              <div class="file-name"></div>
+            </div>
+            <div class="document-item">
+              <label for="encumbrance">
+                <span class="attachment-icon">📎</span>
+                Encumbrance Certificate
+                <span class="file-info">Max 10MB (PDF, JPG, PNG)</span>
+              </label>
+              <input
+                type="file"
+                id="encumbrance"
+                accept=".pdf,.jpg,.jpeg,.png"
+                data-max-size="10"
+              />
+              <div class="file-name"></div>
+            </div>
+            <div class="document-item">
+              <label for="occupancy">
+                <span class="attachment-icon">📎</span>
+                Occupancy Certificate
+                <span class="file-info">Max 10MB (PDF, JPG, PNG)</span>
+              </label>
+              <input
+                type="file"
+                id="occupancy"
+                accept=".pdf,.jpg,.jpeg,.png"
+                data-max-size="10"
+              />
+              <div class="file-name"></div>
+            </div>
+            <div class="document-item">
+              <label for="buildingPlan">
+                <span class="attachment-icon">📎</span>
+                Building Plan Approval
+                <span class="file-info">Max 10MB (PDF, JPG, PNG)</span>
+              </label>
+              <input
+                type="file"
+                id="buildingPlan"
+                accept=".pdf,.jpg,.jpeg,.png"
+                data-max-size="10"
+              />
+              <div class="file-name"></div>
+            </div>
+            <div class="document-item">
+              <label for="powerAttorney">
+                <span class="attachment-icon">📎</span>
+                Power of Attorney
+                <span class="file-info">Max 10MB (PDF, JPG, PNG)</span>
+              </label>
+              <input
+                type="file"
+                id="powerAttorney"
+                accept=".pdf,.jpg,.jpeg,.png"
+                data-max-size="10"
+              />
+              <div class="file-name"></div>
+            </div>
+            <div class="document-item">
+              <label for="photoCertificate">
+                <span class="attachment-icon">📎</span>
+                Photo Certificate / Extract
+                <span class="file-info">Max 10MB (PDF, JPG, PNG)</span>
+              </label>
+              <input
+                type="file"
+                id="photoCertificate"
+                accept=".pdf,.jpg,.jpeg,.png"
+                data-max-size="10"
+              />
+              <div class="file-name"></div>
+            </div>
+          </section>
+
+          <!-- <section class="ownership-history">
+            <h2>Ownership History</h2>
+            <em style="font-size: 10px">Only most recent owner is shown.</em>
+            <p>No Disputed Share Details<br />Inherited property - 2011-2023</p>
+          </section> -->
+
+          <section class="appointement-details">
+            <h2>Appointment Details</h2>
+            <input
+              type="date"
+              id="appointmentDate"
+              class="dropdown-select"
+              required
+            />
+            <select id="Choose" class="dropdown-select" disabled>
+              <option value="register" disabled selected>
+                Choose Sub-Registrar Office
+              </option>
+            </select>
+            <select id="timeSlot" class="dropdown-select" disabled>
+              <option value="" disabled selected>Choose Time Slot</option>
+            </select>
+          </section>
+        </div>
+
+        <div class="right-section">
+          <section>
+            <h2>Property Information</h2>
+            <div class="form-group">
+              <input type="text" placeholder="Property ID" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Plot / Flat Number" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Street" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Locality" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="City" required />
+            </div>
+            <div class="form-group double-input">
+              <input type="text" placeholder="State" required />
+              <input type="text" placeholder="Pincode" required />
+            </div>
+            <div class="form-group">
+              <select id="propertyType" required>
+                <option value="">Type of Property</option>
+                <option value="residential">Residential</option>
+                <option value="commercial">Commercial</option>
+                <option value="industrial">Industrial</option>
+                <option value="agricultural">Agricultural</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Land Area" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Built-up Area" required />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="Property Classification"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <select id="transactionType" required>
+                <option value="">Transaction Type</option>
+                <option value="sale">Sale</option>
+                <option value="inheritance">Inheritance</option>
+                <option value="gift">Gift</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="date" placeholder="Transaction Date" required />
+            </div>
+            <div class="form-group">
+              <input type="number" placeholder="Purchase Value" required />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                placeholder="Stamp Duty & Registration Fees"
+                required
+              />
+            </div>
+          </section>
+
+          <section>
+            <h2>Witness & Verification</h2>
+            <div class="form-group double-input">
+              <input type="text" placeholder="First Name" required />
+              <input type="text" placeholder="Last Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email Address" required />
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Phone Number" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Aadhar / PAN Number" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Permanent Address" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Current Address" required />
+              <em style="font-size: 10px"
+                >Current Address is same as permanent address?</em
+              >
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div style="text-align: center">
+        <button type="submit" class="continue-btn">Continue</button>
+      </div>
+    </form>
+
+    <!-- Web3 and Blockchain Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethereumjs-tx@2.1.2/dist/ethereumjs-tx.min.js"></script>
+    <script src="auth.js" type="module"></script>
+    <script src="web3-config.js" type="module"></script>
+    <script src="ownertransfer.js" type="module"></script>
+  </body>
+</html>

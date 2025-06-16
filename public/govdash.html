@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Land Registry Dashboard</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./govdash.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./commonAuth.js"></script>
+  </head>
+  <body>
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Left Sidebar -->
+      <div class="sidebar">
+        <div class="card">
+          <div class="profile-info">
+            <div class="avatar" id="avatar"></div>
+            <h2 id="userFName"></h2>
+            <p class="text-gray">Government Official</p>
+          </div>
+          <div class="button-group">
+            <button class="btn-primary" onclick="showModal('signatureModal')">
+              <i class="fas fa-signature"></i> Update Signature
+            </button>
+            <br />
+            <button id="logout" class="btn-secondary">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+            <div id="loginSpinner" class="spinner" style="display: none"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="main">
+        <!-- Stats Grid -->
+        <div class="grid">
+          <!-- Registration Verifications -->
+          <div class="card card-clickable" onclick="showModal('pendingModal')">
+            <div class="metric">
+              <div class="metric-label">
+                <i class="fas fa-clock"></i> Registration Verifications
+              </div>
+              <div class="metric-value text-red"></div>
+              <div class="metric-subtext"></div>
+            </div>
+          </div>
+
+          <!-- Transfer Requests -->
+          <div class="card card-clickable" onclick="showModal('transferModal')">
+            <div class="metric">
+              <div class="metric-label">
+                <i class="fas fa-exchange-alt"></i> Transfer Requests
+              </div>
+              <div class="metric-value text-yellow"></div>
+              <div class="metric-subtext"></div>
+            </div>
+          </div>
+
+          <!-- Document Verifications -->
+          <div
+            class="card card-clickable"
+            onclick="showModal('verificationModal')"
+          >
+            <div class="metric">
+              <div class="metric-label">
+                <i class="fas fa-file-alt"></i> Document Verifications
+              </div>
+              <div class="metric-value text-green"></div>
+              <div class="metric-subtext"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="card">
+          <div class="card-header flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold">
+              <i class="fas fa-history"></i> Recent Activity
+            </h2>
+            <button
+              class="btn-secondary btn-small refresh-btn"
+              onclick="refreshActivities()"
+            >
+              <i class="fas fa-sync"></i>
+            </button>
+          </div>
+          <div id="activityList" class="activity-list">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Registration Verifications Modal -->
+    <div id="pendingModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-clock"></i> Registration Verifications</h2>
+          <button class="close-btn" onclick="closeModal('pendingModal')">
+            &times;
+          </button>
+        </div>
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input
+            type="text"
+            placeholder="Search registrations..."
+            onkeyup="filterDocuments(this.value, 'pending')"
+          />
+        </div>
+        <div id="pendingList" class="document-list">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Transfer Requests Modal -->
+    <div id="transferModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-exchange-alt"></i> Transfer Requests</h2>
+          <button class="close-btn" onclick="closeModal('transferModal')">
+            &times;
+          </button>
+        </div>
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input
+            type="text"
+            placeholder="Search transfers..."
+            onkeyup="filterDocuments(this.value, 'transfer')"
+          />
+        </div>
+        <div id="transferList" class="document-list">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Document Verifications Modal -->
+    <div id="verificationModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-file-alt"></i> Document Verifications</h2>
+          <button class="close-btn" onclick="closeModal('verificationModal')">
+            ×
+          </button>
+        </div>
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input
+            type="text"
+            placeholder="Search verifications..."
+            onkeyup="filterDocuments(this.value, 'verification')"
+          />
+        </div>
+        <!-- Add this div that matches the ID being searched for in showVerificationList -->
+        <div id="verificationList" class="document-list">
+          <!-- Will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Digital Signature Modal -->
+    <div id="signatureModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-signature"></i> Create Digital Signature</h2>
+          <span class="close" onclick="closeModal('signatureModal')"
+            >&times;</span
+          >
+        </div>
+        <div class="modal-body">
+          <form id="signatureForm" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="docFile">Select PDF Document to Sign:</label>
+              <input type="file" id="docFile" name="document" required />
+            </div>
+
+            <div
+              class="signature-preview-container mt-4"
+              id="signaturePreviewContainer"
+              style="display: none"
+            >
+              <h3>Signature Preview</h3>
+              <div id="signaturePreview" class="signature-preview"></div>
+            </div>
+
+            <div class="form-buttons">
+              <button
+                type="button"
+                onclick="closeModal('signatureModal')"
+                class="btn-secondary"
+              >
+                <i class="fas fa-times"></i> Cancel
+              </button>
+              <button
+                type="button"
+                onclick="createSignature(event)"
+                class="btn-primary"
+              >
+                <i class="fas fa-signature"></i> Create Signature
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Document Preview Modal -->
+    <div id="documentPreviewModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-file-alt"></i> Document Preview</h2>
+          <button
+            class="close-btn"
+            onclick="closeModal('documentPreviewModal')"
+          >
+            &times;
+          </button>
+        </div>
+        <div id="documentPreviewContent" class="p-4">
+          <!-- PDF viewer will be loaded here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Property Details Modal -->
+    <div id="propertyVerificationModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-check-circle"></i> Property Verification</h2>
+          <button
+            class="close-btn"
+            onclick="closeModal('propertyVerificationModal')"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="tabs">
+          <div class="tab active" onclick="switchVerificationTab('details')">
+            <i class="fas fa-info-circle"></i> Property Details
+          </div>
+          <div class="tab" onclick="switchVerificationTab('owner')">
+            <i class="fas fa-user"></i> Owner Information
+          </div>
+          <div class="tab" onclick="switchVerificationTab('documents')">
+            <i class="fas fa-file"></i> Documents
+          </div>
+          <div class="tab" onclick="switchVerificationTab('blockchain')">
+            <i class="fas fa-cube"></i> Blockchain Info
+          </div>
+        </div>
+        <div id="verificationContent" class="p-4">
+          <!-- Dynamic content will be loaded here -->
+        </div>
+        <div class="verification-form p-4 border-t">
+          <div class="button-group mt-4">
+            <button class="btn-primary" onclick="verifyCurrentDocument()">
+              <i class="fas fa-check"></i> Approve & Verify
+            </button>
+            <button class="btn-secondary" onclick="rejectCurrentDocument()">
+              <i class="fas fa-times"></i> Reject
+            </button>
+            <button
+              class="btn-secondary"
+              onclick="closeModal('propertyVerificationModal')"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Modal Backdrop -->
+    <div id="modalBackdrop" class="modal-backdrop hidden"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.2.2/web3.min.js"></script>
+    <script type="module" src="./govdash.js"></script>
+  </body>
+</html>

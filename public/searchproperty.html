@@ -1,0 +1,82 @@
+<!-- Update searchproperty.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Property Records</title>
+    <link rel="stylesheet" href="./searchproperty.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="back-button" id="backButton">
+        <span>&lt;</span>
+      </div>
+      <h1>Search Property Records</h1>
+      <div class="user-icon">
+        <a href="./profile.html">
+          <img src="./assets/user.png" alt="User Icon" />
+        </a>
+      </div>
+    </header>
+
+    <!-- Search Section -->
+    <div class="container">
+      <div class="search-bar">
+        <div class="search-input-wrapper">
+          <img
+            src="./assets/search-icon.png"
+            alt="Search Icon"
+            class="search-icon"
+          />
+          <input
+            type="text"
+            placeholder="Search Properties"
+            class="search-input"
+          />
+        </div>
+      </div>
+      <div class="filter-options">
+        <div class="filter">
+          <div class="input-wrapper">
+            <img
+              src="./assets/search-icon.png"
+              alt="Search Icon"
+              class="search-icon"
+            />
+            <input type="text" placeholder="City" class="filter-input" />
+          </div>
+        </div>
+        <div class="dropdown">
+          <select id="logic-operator-1" class="dropdown-select">
+            <option value="OR">OR</option>
+            <option value="AND">AND</option>
+            <option value="NOT">NOT</option>
+          </select>
+        </div>
+        <div class="filter">
+          <div class="input-wrapper">
+            <img
+              src="./assets/search-icon.png"
+              alt="Search Icon"
+              class="search-icon"
+            />
+            <input type="text" placeholder="Property ID" class="filter-input" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="submit">
+      <button class="search">Search</button>
+    </div>
+
+    <script type="module" src="./searchproperty.js"></script>
+  </body>
+</html>

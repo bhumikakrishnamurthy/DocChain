@@ -1,0 +1,100 @@
+*{
+    font-family: "Questrial", sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+    position: sticky;
+    top: 0;
+  }
+  
+  .header h1 {
+    font-size: 40px;
+    margin: 0;
+  }
+  
+  .back-button {
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  
+  .user-icon img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+/* Property Image */
+.property-image img {
+    width: 950px;
+    height: 540px;
+}
+.property-image{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.register-button {
+    background-color: #171717;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.register-button:hover {
+    background-color: black;
+    border: #fff solid 2px;
+    font-weight: bold;
+}
+
+/* Property Details */
+.property-details {
+    padding: 1rem;
+}
+
+.details-box {
+    background-color: #171717;
+    padding: 1rem;
+    border-radius: 10px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.detail-item {
+    margin-bottom: 0.5rem;
+}
+
+.detail-item strong {
+    font-weight: bold;
+    color: #fff; /* Highlight color for headings */
+}
+
+.detail-item span {
+    color: #fff;
+}
+

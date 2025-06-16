@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/PropertyRegistry.sol": {
+      "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract PropertyRegistry {\r\n    struct Property {\r\n        string propertyId;          // Original system property ID\r\n        string propertyName;        // Name/title of the property\r\n        string location;           // Property location\r\n        string propertyType;       // Type of property\r\n        address owner;             // Owner's ethereum address\r\n        uint256 registrationDate;  // Registration timestamp\r\n        bool isVerified;          // Verification status\r\n        uint256 lastTransferDate; // Date of last ownership transfer\r\n    }\r\n    \r\n    // Mapping from blockchain ID (address) to Property\r\n    mapping(address => Property) public properties;\r\n    mapping(string => address) public propertyIdToAddress;\r\n    \r\n    // Event emitted when new property is registered\r\n    event PropertyRegistered(\r\n        address indexed blockchainId,\r\n        string propertyId,\r\n        string propertyName,\r\n        address owner\r\n    );\r\n    \r\n    // Event emitted when property is verified\r\n    event PropertyVerified(address indexed blockchainId);\r\n\r\n    // Event emitted when property ownership is transferred\r\n    event OwnershipTransferred(\r\n        address indexed blockchainId,\r\n        address indexed previousOwner,\r\n        address indexed newOwner,\r\n        uint256 transferDate\r\n    );\r\n    \r\n    // Function to register new property\r\n    function registerProperty(\r\n    string memory _propertyId,\r\n    string memory _propertyName,\r\n    string memory _location,\r\n    string memory _propertyType\r\n) public returns (address) {\r\n        // Generate a unique blockchain ID based on property details\r\n        address blockchainId = address(uint160(uint(keccak256(abi.encodePacked(_propertyId, block.timestamp)))));\r\n        propertyIdToAddress[_propertyId] = blockchainId;\r\n        \r\n        // Create new property\r\n        properties[blockchainId] = Property({\r\n            propertyId: _propertyId,\r\n            propertyName: _propertyName,\r\n            location: _location,\r\n            propertyType: _propertyType,\r\n            owner: msg.sender,\r\n            registrationDate: block.timestamp,\r\n            isVerified: false,\r\n            lastTransferDate: block.timestamp\r\n        });\r\n        \r\n        emit PropertyRegistered(blockchainId, _propertyId, _propertyName, msg.sender);\r\n        return blockchainId;\r\n    }\r\n    \r\n    // Function to verify property (only by authorized verifier)\r\n    function verifyProperty(address _blockchainId) public {\r\n        // Add proper authorization checks here\r\n        require(properties[_blockchainId].owner != address(0), \"Property does not exist\");\r\n        properties[_blockchainId].isVerified = true;\r\n        emit PropertyVerified(_blockchainId);\r\n    }\r\n    \r\n    // Function to transfer property ownership\r\n    function transferOwnership(address _blockchainId, address _newOwner) public {\r\n        require(properties[_blockchainId].owner != address(0), \"Property does not exist\");\r\n        require(properties[_blockchainId].owner == msg.sender, \"Only current owner can transfer property\");\r\n        require(_newOwner != address(0), \"Invalid new owner address\");\r\n        require(properties[_blockchainId].isVerified, \"Property must be verified before transfer\");\r\n\r\n        address previousOwner = properties[_blockchainId].owner;\r\n        properties[_blockchainId].owner = _newOwner;\r\n        properties[_blockchainId].lastTransferDate = block.timestamp;\r\n\r\n        emit OwnershipTransferred(_blockchainId, previousOwner, _newOwner, block.timestamp);\r\n    }\r\n    \r\n    // Function to get property details\r\n    function getProperty(address _blockchainId) public view returns (Property memory) {\r\n        require(properties[_blockchainId].owner != address(0), \"Property does not exist\");\r\n        return properties[_blockchainId];\r\n    }\r\n}"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

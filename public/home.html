@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DocChain - Land Registry and Document Verification</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Questrial", sans-serif;
+      }
+
+      body {
+        background-color: #000;
+        color: #fff;
+        line-height: 1.6;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5%;
+        background-color: #171717;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .logo img {
+        height: 60px;
+      }
+
+      .nav-buttons {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .btn {
+        padding: 0.5rem 1.5rem;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary {
+        background-color: #4169e1;
+        color: white;
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        border: 1px solid #fff;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 4rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 85px;
+        background: linear-gradient(to right, #4e48ff, #47abfe);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        margin-bottom: 1rem;
+        max-width: 95%;
+        margin: 0 auto 1rem;
+      }
+
+      .hero p {
+        color: #888;
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 20px;
+      }
+
+      .feature-section {
+        padding: 2rem 5%;
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        margin: 2rem 0;
+      }
+
+      .feature-section.reverse {
+        flex-direction: row-reverse;
+      }
+
+      .feature-content {
+        flex: 1;
+      }
+
+      .feature-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .feature-image img {
+        max-width: 80%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .feature-content h2 {
+        font-size: 60px;
+        margin-bottom: 1rem;
+        color: #fff;
+        text-align: center;
+      }
+      .benefits-content h2 {
+        text-align: center;
+        font-size: 60px;
+        color: #fff;
+      }
+      .feature-content p {
+        color: #888;
+        margin-bottom: 1.5rem;
+        font-size: 20px;
+      }
+
+      .benefits-section {
+        padding: 4rem 5%;
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+      }
+
+      .benefits-content {
+        flex: 1;
+        font-size: 20px;
+        color: #888;
+      }
+
+      .benefits-image {
+        flex: 1;
+      }
+
+      .benefits-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .why-section {
+        padding: 4rem 5%;
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+      }
+
+      .team {
+        padding: 4rem 5%;
+        text-align: center;
+      }
+
+      .team h2 {
+        font-size: 80px;
+        color: #4169e1;
+        margin-bottom: 2rem;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .team-member {
+        text-align: center;
+      }
+
+      .team-member img {
+        width: 300px;
+        height: 350px;
+        border-radius: 30px;
+        margin-bottom: 1rem;
+        object-fit: cover;
+      }
+
+      .social-links img {
+        width: 30px;
+        height: 30px;
+        border-radius: 0px;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      .social-links a {
+        color: #4169e1;
+        text-decoration: none;
+      }
+
+      footer {
+        padding: 2rem 5%;
+        text-align: center;
+        border-top: 1px solid #222;
+      }
+
+      footer .logo {
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-links a {
+        color: #888;
+        text-decoration: none;
+      }
+      h3 {
+        font-size: 25px;
+      }
+      @media (max-width: 768px) {
+        .feature-section,
+        .feature-section.reverse,
+        .benefits-section,
+        .why-section {
+          flex-direction: column;
+          gap: 2rem;
+        }
+
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="./home.html" class="logo">
+        <img src="./assets/logo.png" alt="TrustVault Logo" />
+      </a>
+      <div class="nav-buttons">
+        <a href="./Login.html">
+          <button class="btn btn-outline">Login</button>
+        </a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <h1>
+        Revolutionizing Land Registry and Document Verification with Blockchain
+        Transparency.
+      </h1>
+      <p>
+        Empowering Secure Land Registry and Document Verification with
+        Blockchain
+      </p>
+    </section>
+
+    <section class="feature-section">
+      <div class="feature-content">
+        <h2>Land Registry</h2>
+        <p>
+          Secure, transparent, and tamper-proof property ownership management.
+          It digitizes property records, eliminates fraud, reduces disputes, and
+          provides an immutable, accessible, and efficient system for land
+          ownership verification and transfer.
+        </p>
+      </div>
+      <div class="feature-image">
+        <img src="./assets/landregistry.png" alt="Land Registry Illustration" />
+      </div>
+    </section>
+
+    <section class="feature-section reverse">
+      <div class="feature-content">
+        <h2>Document Verification</h2>
+        <p>
+          Secure, transparent, and tamper-proof property ownership management.
+          It digitizes property records, eliminates fraud, reduces disputes, and
+          provides an immutable, accessible, and efficient system for land
+          ownership verification and transfer.
+        </p>
+      </div>
+      <div class="feature-image">
+        <img
+          src="./assets/documentver.png"
+          alt="Document Verification Illustration"
+        />
+      </div>
+    </section>
+
+    <section class="benefits-section">
+      <div class="benefits-content">
+        <h2>Benefits Of Proposed System</h2>
+        <p>
+          The proposed system enhances transparency, security, and immutability,
+          reduces fraud, eliminates intermediaries, accelerates property
+          transactions, enhances trust, and provides a tamper-proof record for
+          land ownership verification.
+        </p>
+      </div>
+      <div class="benefits-image">
+        <img src="./assets/benefit.png" alt="Benefits Illustration" />
+      </div>
+    </section>
+
+    <section class="why-section">
+      <div class="feature-image">
+        <img src="./assets/trustland.png" alt="Why TrustVault" />
+      </div>
+      <div class="feature-content">
+        <h2>Why DocChain?</h2>
+        <p>
+          DocChain leverages blockchain to encrypt and validate documents.
+          Upload your file or registry details, and the system generates a
+          secure, immutable record. Verification occurs instantly through a
+          decentralized ledger, ensuring secure ownership, and store records
+          effortlessly with DocChain.
+        </p>
+      </div>
+    </section>
+
+    <section class="team">
+      <h2>Dev Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="./assets/bhabhisha.png" alt="B H Abhisha" />
+          <h3>B H Abhisha</h3>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/abhisha-bh-53788725a/" target="_blank"
+              ><img src="./assets/linkdin.png" alt="linkdin" class="imk"
+            /></a>
+            <a href="https://github.com/Abhisha-BH" target="_blank"
+              ><img src="./assets/github.png" alt="linkdin" class="imk"
+            /></a>
+          </div>
+        </div>
+
+
+        <div class="team-member">
+          <img src="./assets/bhumikak.png" alt="Bhumika K" />
+
+          <h3>Bhumika K</h3>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/bhumika-k-99216225a/" target="_blank"
+              ><img src="./assets/linkdin.png" alt="linkdin" class="imk"
+            /></a>
+            <a href="https://github.com/bhumikakrishnamurthy" target="_blank"
+              ><img src="./assets/github.png" alt="linkdin" class="imk"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="logo">
+        <img src="./assets/logo.png" alt="TrustVault Logo" />
+      </div>
+      <div class="footer-links">
+        <a href="#">Terms and Conditions</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+      <p>Copyright © 2025 DocChain. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Add smooth scrolling for navigation
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Add hover effects for buttons
+      const buttons = document.querySelectorAll(".btn");
+      buttons.forEach((button) => {
+        button.addEventListener("mouseover", () => {
+          button.style.transform = "translateY(-2px)";
+        });
+        button.addEventListener("mouseout", () => {
+          button.style.transform = "translateY(0)";
+        });
+      });
+    </script>
+  </body>
+</html>

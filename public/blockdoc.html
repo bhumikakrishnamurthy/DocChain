@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blockchain Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./blockchain.css" />
+    <style>
+      .property-card span {
+        color: white;
+        font-weight: 500;
+      }
+
+      .switch-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+      }
+
+      .switch-track {
+        background: rgba(255, 255, 255, 0.1);
+        width: 300px;
+        height: 40px;
+        border-radius: 25px;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 4px;
+      }
+
+      .switch-option {
+        width: 50%;
+        text-align: center;
+        z-index: 2;
+        color: rgba(255, 255, 255, 0.7);
+        transition: color 0.3s ease;
+        user-select: none;
+      }
+
+      .switch-option.active {
+        color: white;
+      }
+
+      .switch-slider {
+        position: absolute;
+        width: 50%;
+        height: calc(100% - 8px);
+        background: #3b82f6;
+        border-radius: 22px;
+        transition: transform 0.3s ease;
+        left: 4px;
+      }
+
+      /* Position for IPFS mode */
+      .switch-track[data-active="ipfs"] .switch-slider {
+        transform: translateX(calc(100% - 8px));
+      }
+
+      /* Text colors for active states */
+      .switch-track[data-active="blockchain"] .left {
+        color: white;
+      }
+
+      .switch-track[data-active="blockchain"] .right {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .switch-track[data-active="ipfs"] .right {
+        color: white;
+      }
+
+      .switch-track[data-active="ipfs"] .left {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="back-button" id="backButton">
+        <span>&lt;</span>
+      </div>
+      <h1>Verify Document Verification Status</h1>
+      <div class="user-icon">
+        <a href="./profile.html">
+          <img src="./assets/user.png" alt="User Icon" />
+        </a>
+      </div>
+    </header>
+
+    <div class="switch-container">
+      <div class="switch-track" data-active="blockchain">
+        <div class="switch-option left active">Blockchain ID</div>
+        <div class="switch-option right">IPFS Hash</div>
+        <div class="switch-slider"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-box"
+          placeholder="Enter Blockchain ID"
+          id="searchInput"
+        />
+        <button class="verify-button" id="verifyButton" disabled>
+          Verify Property
+        </button>
+      </div>
+
+      <div class="error-message" id="errorMessage">
+        Please enter a valid blockchain ID
+      </div>
+
+      <div id="resultContainer"></div>
+      <div id="loadingSpinner" class="loading-spinner" style="display: none">
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <script type="module" src="./blockdoc.js"></script>
+  </body>
+</html>
